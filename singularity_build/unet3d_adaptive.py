@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 14 12:15:33 2021
 
-@author: dossd
-"""
 import sys
 
 pathList = sys.path

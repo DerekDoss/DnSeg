@@ -2,9 +2,6 @@ import sys
 import nibabel as nib
 from nibabel.processing import conform
 
-# print(sys.argv[1])
-# print(sys.argv[2])
-
 inputFilePath = sys.argv[1]
 outputFilePath = sys.argv[2]
 img = nib.load(inputFilePath)

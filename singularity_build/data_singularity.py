@@ -1,17 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 14 12:14:01 2021
-
-@author: dossd
-"""
 import sys
-
-pathList = sys.path
-if any("dossdj" in string for string in pathList):
-    sys.path.remove('/home/dossdj/.local/lib/python3.6/site-packages')
-
-
-#from __future__ import print_function, division
 import os
 import torch
 import pandas as pd
@@ -55,9 +42,6 @@ class NBM_dataset(Dataset):
         scale_val99 = np.percentile(img_array, 99)
         img_array_rescaled = img_array/np.abs(scale_val99)
 
-        # # Pad out to 68x68x68
-        # img_array_padded = np.zeros((68, 68, 68))
-        # img_array_padded[2:66, 2:66, 2:66] = img_array_rescaled
         img_array_padded = img_array_rescaled
         
         # load in img as a tensor and make sure that it is 4D 

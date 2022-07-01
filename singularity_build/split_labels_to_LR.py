@@ -3,10 +3,6 @@ from intensity_normalization.normalize.nyul import NyulNormalize
 import nibabel as nib
 import numpy as np
 
-# print("starting python")
-# print(sys.argv[1])
-# print(sys.argv[2])
-
 bothLabelsFilepath = sys.argv[1]
 L_labelFilepath = sys.argv[2]
 R_labelFilepath = sys.argv[3]

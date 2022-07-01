@@ -1,9 +1,6 @@
 import sys
 import nibabel as nib
 
-# print(sys.argv[1])
-# print(sys.argv[2])
-
 inputFilePath = sys.argv[1]
 outputFilePath = sys.argv[2]
 

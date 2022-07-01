@@ -3,24 +3,11 @@ from intensity_normalization.normalize.nyul import NyulNormalize
 import nibabel as nib
 import numpy as np
 
-# print("starting python")
-# print(sys.argv[1])
-# print(sys.argv[2])
-
-# standardHistogramPath = sys.argv[1]
-# inputFilePath = sys.argv[2]
-# normFilePath = sys.argv[3]
-
-
-# def extractBoundingBoxNorm(normDir, augDir, sclimbicDir, boxDir):
      
 augFilename = sys.argv[1]
 sclimbicDir = sys.argv[2]
 boxDir = sclimbicDir
 normDir = sclimbicDir
-
-# verify the filepath
-# print("3T Filepath: " + augFilename)
 
 ## get the filepath for the sclimbic file
 # split the augFilename path

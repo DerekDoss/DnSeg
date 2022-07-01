@@ -3,37 +3,17 @@ from intensity_normalization.normalize.nyul import NyulNormalize
 import nibabel as nib
 import numpy as np
 
-# print("starting python")
-# print(sys.argv[1])
-# print(sys.argv[2])
-
-# def predictionBoundingBoxToFullImg(predDir, sclimbicDir, outDir):
-
 predFilepath = sys.argv[1]
 sclimbic_filepath = sys.argv[2]
 predDir = sys.argv[3]
 pred_out_filepath = sys.argv[4]
 sclimbicDir = predDir
 
-# verify the filepath
-# print("prediction Filepath: " + predFilepath)
- 
-
 # split the augFilename path
 predFilename = predFilepath.split("/")[-1]
 
 subjName = predFilename.split("_")[3]
 augPerformed = predFilename.split("_")[4]
-
-
-# add in the full filepath
-# sclimbic_filepath = sclimbicDir+sclimbic_filename
-# print("Sclimbic input filepath: " + sclimbic_filepath)
-
-# pred_out_filename = predFilename
-# create the full filepath
-# pred_out_filepath = outDir+pred_out_filename
-# print("output filepath: " + pred_out_filepath)
 
 ## load in the images
 # 3T image
