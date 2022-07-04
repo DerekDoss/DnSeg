@@ -21,6 +21,7 @@ There are two options on how to use DnSeg. You can either build it yourself or d
 Option 1: Download the prebuilt singularity
 - Install singularity 3.9.9 (https://github.com/sylabs/singularity/releases)
 - Download DnSeg singularity file (www.derekdoss.com/pub/dnseg/DnSeg_v1.0.sif) note: the file is too large for github, thus it is hosted on my personal website
+- Downlaod the model file (www.derekdoss.com/pub/dnseg/dnseg_model_files.tar.gz)
 - Place the nifti file you want to segment in a folder on your machine
 - Run the following command "singularity exec --bind /path/to/folder/containing/nifti/:/inputs DnSeg_v1.0.sif bash /singularity_DnSeg.sh /inputs/nifti_file.nii"
 
