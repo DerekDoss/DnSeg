@@ -2,6 +2,8 @@
 Deep Learning Segmentation of the Nucleus Basalis of Meynert
 
 # License
+This code is licensed under Apache 2.0.
+If you use it, please cite the paper: TBD, submitted to preprint and a journal.
 
 # Dependencies (the singlarity can take care of all of the dependencies)
 - Singularity 3.9.9 (https://github.com/sylabs/singularity/releases) (problems arise when using singularity 3.10.x)
