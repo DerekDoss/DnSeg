@@ -89,7 +89,7 @@ def main():
     all_pred_L_torch = torch.zeros(64,64,64)
     all_pred_R_torch = torch.zeros(64,64,64)
     for i in range(num_models):     
-        trainedModelPath = "/model"+str(i)+".pt"
+        trainedModelPath = "/dnseg_model"+str(i)+".pt"
         pred = runTrainedModel(trainedModelPath, runFolder, runFolder, [runFileName])
         
         pred_L_thresholded = thresholdWithPercentile(pred[0,:,:,:], percentile).type(torch.int32)

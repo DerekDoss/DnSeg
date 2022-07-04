@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# userInputFile="rP0139-1_3T_T1w_reg_sform.nii"
 userInputFile=$1
 skullStripInput=$2
 

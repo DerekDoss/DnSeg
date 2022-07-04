@@ -1,0 +1,59 @@
+BootStrap: debootstrap
+OSVersion: bionic
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+
+%runscript
+    echo "Run this with exec as seen in the example"
+	echo "You'll need to create a folder for the inputs"
+	echo "singularity exec --bind /home/dossdj/singularityFileDir/:/inputs DnSeg.sif bash /singularity_DnSeg.sh /inputs/rP0139-1_3T_T1w_reg_sform.nii"
+	
+%help
+	Run this with exec as seen in the example
+	You'll need to create a folder for the inputs
+	singularity exec --bind /home/dossdj/singularityFileDir/:/inputs DnSeg.sif bash /singularity_DnSeg.sh /inputs/rP0139-1_3T_T1w_reg_sform.nii
+
+%post
+    sed -i 's/$/ universe/' /etc/apt/sources.list
+    apt-get update
+	apt-get -y upgrade
+	apt-get -y install fortune cowsay lolcat
+	apt-get -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget libjpeg-dev
+	apt-get -y install libxcb-randr0-dev libxcb-xtest0-dev libxcb-xinerama0-dev libxcb-shape0-dev libxcb-xkb-dev
+	apt-get -y install python3.6
+	apt-get -y install build-essential libssl-dev libffi-dev python3-dev
+	alias python='python3.6'
+	apt-get -y install python3-pip
+	pip3 install --upgrade pip
+	pip3 install opencv-python
+	pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+	pip3 install torchio
+	pip3 install intensity-normalization
+	wget www.derekdoss.com/pub/dnseg/ROBEXv12.linux64.tar.gz
+	wget www.derekdoss.com/pub/dnseg/dnseg_model_files.tar.gz
+	wget https://surfer.nmr.mgh.harvard.edu/pub/dist/sclimbic/sclimbic-linux-20210725.tar.gz
+	tar -xvf ROBEXv12.linux64.tar.gz
+	tar -xvf dnseg_model_files.tar.gz
+	tar xvfz sclimbic-linux-20210725.tar.gz
+	mkdir /inputs
+	rm -r /dev/shm
+	mkdir /dev/shm
+	chmod 777 /dev/shm
+	
+
+%environment
+	export PATH=$PATH:/usr/games:/ROBEX:/sclimbic
+	export FREESURFER_HOME=/sclimbic
+	
+%files
+	bounding_box_to_full_img.py
+	convert_to_RAS.py
+	data_singularity.py
+	extract_bounding_box.py
+	model_prediction.py
+	normalize_images.py
+	reslice_to_1mm.py
+	singularity_DnSeg.sh
+	split_labels_to_LR.py
+	unet3d_adaptive.py
+	standard_histogram.npy
